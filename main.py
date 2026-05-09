@@ -95,7 +95,13 @@ def cleanup_temp() -> None:
         shutil.rmtree(TEMP_DIR, ignore_errors=True)
 
 
+def cleanup_data() -> None:
+    if DATA_DIR.exists():
+        shutil.rmtree(DATA_DIR, ignore_errors=True)
+
+
 atexit.register(cleanup_temp)
+atexit.register(cleanup_data)
 
 
 class HttpClient:
